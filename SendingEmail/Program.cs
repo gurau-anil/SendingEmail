@@ -42,7 +42,7 @@ namespace SendingEmail
     {
         public void SendEmail(Mail mail)
         {
-            MailMessage mailMessage = new MailMessage("gurau.aneel@gmail.com", mail.To.ToString())
+            MailMessage mailMessage = new MailMessage("xxxxx@gmail.com", mail.To.ToString())
             {
                 Subject = mail.Subject,
                 Body = mail.Body,
@@ -59,7 +59,7 @@ namespace SendingEmail
             };
 
 
-            NetworkCredential network = new NetworkCredential("gurau.aneel@gmail.com", "xr11060720");
+            NetworkCredential network = new NetworkCredential("xxxxx@gmail.com", "******");
             smtpClient.Credentials = network;
 
             try
