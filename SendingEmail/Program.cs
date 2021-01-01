@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,6 +12,8 @@ namespace SendingEmail
     {
         static void Main(string[] args)
         {
+            Regex emailRegex = new Regex(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
+
             while(true)
             {
                 Mail mail = new Mail();
@@ -29,6 +30,11 @@ namespace SendingEmail
                 if(String.IsNullOrWhiteSpace(mail.To))
                 {
                     Console.WriteLine("You must enter an email address.");
+                    continue;
+                }
+                else if(!emailRegex.IsMatch(mail.To))
+                {
+                    Console.WriteLine("Invalid email address.");
                     continue;
                 }
                 else
@@ -58,47 +64,6 @@ namespace SendingEmail
                     Environment.Exit(-1);
                 }
                 Console.ReadLine();
-            }
-        }
-    }
-    class Mail
-    {
-        public string To { get; set; }
-        public string Subject { get; set; }
-        public string Body { get; set; }
-    }
-    class EmailSender
-    {
-        public void SendEmail(Mail mail)
-        {
-            MailMessage mailMessage = new MailMessage("xxxxx@gmail.com", mail.To.ToString())
-            {
-                Subject = mail.Subject,
-                Body = mail.Body,
-                IsBodyHtml = false
-            };
-
-
-            SmtpClient smtpClient = new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                UseDefaultCredentials = false
-            };
-
-
-            NetworkCredential network = new NetworkCredential("xxxxx@gmail.com", "*********");
-            smtpClient.Credentials = network;
-
-            try
-            {
-                smtpClient.Send(mailMessage);
-                Console.WriteLine($"Email is successfully delivered to {mail.To}");
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Sending Email Failed.");
             }
         }
     }
