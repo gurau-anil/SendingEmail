@@ -59,7 +59,7 @@ namespace SendingEmail
             };
 
 
-            NetworkCredential network = new NetworkCredential("xxxxx@gmail.com", "******");
+            NetworkCredential network = new NetworkCredential("xxxxx@gmail.com", "*********");
             smtpClient.Credentials = network;
 
             try
