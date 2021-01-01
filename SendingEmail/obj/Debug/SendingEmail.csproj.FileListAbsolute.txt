@@ -1,0 +1,7 @@
+C:\Users\DELL\source\repos\SendingEmail\SendingEmail\bin\Debug\SendingEmail.exe.config
+C:\Users\DELL\source\repos\SendingEmail\SendingEmail\bin\Debug\SendingEmail.exe
+C:\Users\DELL\source\repos\SendingEmail\SendingEmail\bin\Debug\SendingEmail.pdb
+C:\Users\DELL\source\repos\SendingEmail\SendingEmail\obj\Debug\SendingEmail.csprojAssemblyReference.cache
+C:\Users\DELL\source\repos\SendingEmail\SendingEmail\obj\Debug\SendingEmail.csproj.CoreCompileInputs.cache
+C:\Users\DELL\source\repos\SendingEmail\SendingEmail\obj\Debug\SendingEmail.exe
+C:\Users\DELL\source\repos\SendingEmail\SendingEmail\obj\Debug\SendingEmail.pdb
